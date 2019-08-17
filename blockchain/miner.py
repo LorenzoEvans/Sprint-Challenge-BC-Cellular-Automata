@@ -38,8 +38,15 @@ def valid_proof(last_hash, proof):
     IE:  last_hash: ...999123456, new hash 123456888...
     """
     last_six = last_hash[-6:]
-    first_proof = proof[0:6]
-    # TODO: Your code here!
+    
+    first_proof = hashlib.sha3_256(proof[0:6]).hexdigest()
+    
+    if last_hash == first_proof:
+     return True
+    else:
+     return False
+    
+    # TODO: Your code here!I'mma pull out the Vacheron!!!
     pass
 
 
