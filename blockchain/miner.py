@@ -39,9 +39,10 @@ def valid_proof(last_hash, proof):
 
     IE:  last_hash: ...999123456, new hash 123456888...
     """
-    last_six = last_hash[-6:]
-    
-    first_proof = hashlib.sha3_256(proof[0:6]).hexdigest()
+    str_hash = str(last_hash)
+    last_six = str_hash[-6:]
+    str_proof = str(proof)
+    first_proof = hashlib.sha3_256(str_proof.encode()).hexdigest()
     
     if last_hash == first_proof:
      return True
